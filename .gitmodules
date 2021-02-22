@@ -1,0 +1,3 @@
+[submodule "AI-Game-Playing"]
+	path = AI-Game-Playing
+	url = https://github.com/mlepinski/AI-Game-Playing.git
