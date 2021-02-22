@@ -1,7 +1,9 @@
 
 # OwareAI
-A collection of A.I. implementations for Oware.
+A collection of A.I. implementations for Oware, created by TeamiumPremium.
 For the course: Artificial Intelligence Through Machine Game Playing, Spring 2021.
+
+Yes, we know the name "TeamiumPremium" is ~~terrible~~ great. It keeps things light.
 
 ## Structure
 **TeamiumPremium**: Directory containing the AI implementations and associated code (e.g. test Oware environment runner).
