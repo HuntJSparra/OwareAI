@@ -6,11 +6,13 @@ import java.lang.reflect.Method;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
 
+import ArmyOfBaab.*;
 import ProjectOneEngine.*;
 
 // This will allow us to test our code in the AIGameApp environment without directly
 // modifying it.
 public class CustomGameApp extends AIGameApp {
+
     public void start(Stage primaryStage) {
         // Initialize the AIGameApp to its default values
         super.start(primaryStage);
@@ -22,28 +24,26 @@ public class CustomGameApp extends AIGameApp {
             // Set the players.
             Field defaultAccessibilityTOP_Player = AIGameApp.class.getDeclaredField("TOP_Player");
             defaultAccessibilityTOP_Player.setAccessible(true);
-            defaultAccessibilityTOP_Player.set(this, new RandomPlayer());
+            defaultAccessibilityTOP_Player.set(this, new BabyBaab());
 
             Field defaultAccessibilityBOT_Player = AIGameApp.class.getDeclaredField("BOT_Player");
             defaultAccessibilityBOT_Player.setAccessible(true);
-            defaultAccessibilityBOT_Player.set(this, new RandomPlayerPremium());
+            defaultAccessibilityBOT_Player.set(this, new WiserOlderBaabPremium(4));
 
             // Set the names for the (new) players.
-            Player TOP_Player = (Player)defaultAccessibilityTOP_Player.get(this);
-            Player BOT_Player = (Player)defaultAccessibilityBOT_Player.get(this);
+            Player TOP_Player = (Player) defaultAccessibilityTOP_Player.get(this);
+            Player BOT_Player = (Player) defaultAccessibilityBOT_Player.get(this);
 
             String nameTop;
             String nameBot;
-            if (TOP_Player != null){
+            if (TOP_Player != null) {
                 nameTop = TOP_Player.getPlayName();
-            }
-            else{
+            } else {
                 nameTop = "Human Player";
             }
-            if (BOT_Player != null){
+            if (BOT_Player != null) {
                 nameBot = BOT_Player.getPlayName();
-            }
-            else{
+            } else {
                 nameBot = "Human Player";
             }
             String title = "TOP: " + nameTop + " ";
@@ -59,7 +59,7 @@ public class CustomGameApp extends AIGameApp {
             Field defaultAccessibilityTest_canvas = AIGameApp.class.getDeclaredField("test_canvas");
             defaultAccessibilityTest_canvas.setAccessible(true);
             Class defaultAccessibilityGDG = Class.forName("ProjectOneEngine.GameDisplayGraphics");
-            Class[] displayStateArgs = new Class[] { Canvas.class, GameState.class };
+            Class[] displayStateArgs = new Class[]{Canvas.class, GameState.class};
             Method methodInDefaultAcessibilityClassDisplayState = defaultAccessibilityGDG.getDeclaredMethod("displayState", displayStateArgs);
             methodInDefaultAcessibilityClassDisplayState.setAccessible(true);
             methodInDefaultAcessibilityClassDisplayState.invoke(null, defaultAccessibilityTest_canvas.get(this), defaultAccessibilityState.get(this));
