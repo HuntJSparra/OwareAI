@@ -61,7 +61,7 @@ public class WiserOlderBaabPremium implements Player {
         if (depthRemaining <= 0 || futureState.isGameOver()) {
             return scoreFutureState(startState, futureState);
         }
-
+        
         //Find best Score
         double bestScore = Double.NEGATIVE_INFINITY;
         ArrayList<Integer> bins = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
@@ -69,7 +69,7 @@ public class WiserOlderBaabPremium implements Player {
         for (Integer i : bins) {
             GameState testState = GameRules.makeMove(futureState, i);
             if (testState != null) {
-                double score = minimize(startState, testState, --depthRemaining);
+                double score = minimize(startState, testState, depthRemaining - 1);
                 if (score > bestScore) {
                     bestScore = score;
                 }
@@ -92,7 +92,7 @@ public class WiserOlderBaabPremium implements Player {
         for (Integer i : bins) {
             GameState testState = GameRules.makeMove(futureState, i);
             if (testState != null) {
-                double score = maximize(startState, testState, --depthRemaining);
+                double score = maximize(startState, testState, depthRemaining - 1);
                 if (score < bestScore) {
                     bestScore = score;
                 }
