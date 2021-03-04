@@ -24,11 +24,11 @@ public class CustomGameApp extends AIGameApp {
             // Set the players.
             Field defaultAccessibilityTOP_Player = AIGameApp.class.getDeclaredField("TOP_Player");
             defaultAccessibilityTOP_Player.setAccessible(true);
-            defaultAccessibilityTOP_Player.set(this, new CarefulBaab());
+            defaultAccessibilityTOP_Player.set(this, new WiseOldBaab());
 
             Field defaultAccessibilityBOT_Player = AIGameApp.class.getDeclaredField("BOT_Player");
             defaultAccessibilityBOT_Player.setAccessible(true);
-            defaultAccessibilityBOT_Player.set(this, new PruniumWiserOlderBaabPremium(13));
+            defaultAccessibilityBOT_Player.set(this, new NotiumAiumRatioiumPruniumWiserOlderBaabPremium(12));
 
             // Set the names for the (new) players.
             Player TOP_Player = (Player) defaultAccessibilityTOP_Player.get(this);
