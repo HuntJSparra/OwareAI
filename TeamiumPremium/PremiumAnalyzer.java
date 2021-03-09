@@ -51,14 +51,14 @@ public class PremiumAnalyzer {
         this.extractStatsFunctions.addAll(generalStats); // Adding General Stat 
 
         this.gameStats = new ArrayList<>();
-        this.lengthOfAnalysis = 10;
+        this.lengthOfAnalysis = 30;
         this.maxScorelessTurns = 20;
         this.scorelessTurns = 0;
     }
 
     public static void main(String[] args) {
         PremiumAnalyzer analyzer = new PremiumAnalyzer();
-        analyzer.start(new WiseOldBaab(), new NotiumAiumRatioiumPruniumWiserOlderBaabPremium(10));
+        analyzer.start(new SafiumBaabPremium(11), new WiseOldBaab());
         analyzer.analyzeStats();
     }
 
